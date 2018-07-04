@@ -369,7 +369,7 @@ module.exports = function(mongoose) {
                 user = new User(userData);
 
                 // save the temporary user to the persistent user collection
-                user.save(function(err, savedUser) {
+                user.save({ validateBeforeSave: false }, function(err, savedUser) {
                     if (err) {
                         return callback(err, null);
                     }
