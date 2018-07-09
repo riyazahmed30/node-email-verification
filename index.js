@@ -367,6 +367,8 @@ module.exports = function(mongoose) {
 
                 delete userData[options.URLFieldName];
                 user = new User(userData);
+                
+                user.creationDate = new Date().toISOString();
 
                 // save the temporary user to the persistent user collection
                 user.save({ validateBeforeSave: false }, function(err, savedUser) {
